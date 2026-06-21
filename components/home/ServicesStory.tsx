@@ -136,7 +136,7 @@ export function ServicesStory() {
         style={{ backgroundColor: "#ff5e13", color: "#fff" }}
       >
         <PanelImage
-          src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1200&q=80"
+          src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80"
           tint="#ff5e13"
         />
         <p className={kicker}>03 — Why Jadida</p>

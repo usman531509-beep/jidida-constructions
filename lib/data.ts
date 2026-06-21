@@ -44,7 +44,7 @@ export const projects = [
 
 export const services = [
   {
-    image: u("photo-1581094794329-c8112a89af12"),
+    image: u("photo-1600585154340-be6161a56a0c"),
     title: "Renovations",
     text: "Full house, flat and commercial refurbishments with complete planning and finishing support.",
   },
@@ -105,7 +105,7 @@ export const posts = [
     title: "Planning a Home Renovation Without Stress",
   },
   {
-    image: u("photo-1517581177682-a085bb7ffb38"),
+    image: u("photo-1504307651254-35680f356dfd"),
     meta: "Advice - Building Advice",
     title: "What To Check Before Choosing a Builder",
   },

@@ -130,7 +130,7 @@ export function SplitCta() {
         className="reveal min-h-[420px] bg-cover bg-center"
         style={{
           backgroundImage:
-            "url('https://images.unsplash.com/photo-1517581177682-a085bb7ffb38?auto=format&fit=crop&w=1400&q=80')",
+            "url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1400&q=80')",
         }}
       />
       <div className="reveal bg-navy px-[70px] py-[80px] text-white">

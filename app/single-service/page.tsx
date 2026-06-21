@@ -62,7 +62,7 @@ export default function SingleServicePage() {
             {/* Main content */}
             <div>
               <img
-                src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1400&q=80"
+                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80"
                 alt="Home renovation in progress"
                 className="reveal-left h-[300px] w-full rounded-tl-[30px] rounded-br-[30px] object-cover shadow-brand tab:h-[440px]"
               />
