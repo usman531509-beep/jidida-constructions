@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white font-sans text-[18px] font-normal leading-[1.55] text-navy antialiased;
+    letter-spacing: 0.1px;
+  }
+
+  img {
+    @apply block max-w-full;
+  }
+}
+
+/*
+  Scroll-reveal. The hidden state only applies once the SiteEffects client
+  component adds `dynamic-ready` to <html>, so content is fully visible when
+  JavaScript is unavailable. The observer then adds `is-visible` on scroll.
+*/
+@layer components {
+  .dynamic-ready .reveal {
+    @apply translate-y-[34px] scale-[.985] opacity-0 blur-[2px];
+    transition: opacity 0.78s ease, transform 0.78s ease, filter 0.78s ease;
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: transform;
+  }
+
+  .dynamic-ready .reveal.is-visible {
+    @apply translate-y-0 scale-100 opacity-100 blur-0;
+  }
+
+  /* Directional reveals — slide in from the left / right on scroll. */
+  .dynamic-ready .reveal-left,
+  .dynamic-ready .reveal-right {
+    @apply opacity-0;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: transform;
+  }
+  .dynamic-ready .reveal-left {
+    @apply -translate-x-12;
+  }
+  .dynamic-ready .reveal-right {
+    @apply translate-x-12;
+  }
+  .dynamic-ready .reveal-left.is-visible,
+  .dynamic-ready .reveal-right.is-visible {
+    @apply translate-x-0 opacity-100;
+  }
+}
+
+/*
+  story-scroll (FlowArt) panels are full-viewport and pinned, while this site has
+  a sticky header. Raise the top padding of each panel's inner so its top label is
+  never hidden behind the header. Higher specificity than the component's own
+  pt utility, so it reliably wins.
+*/
+/* Hero stats panel: clean rounded corners on mobile, elliptical curved bottom on desktop. */
+.hero-stats-panel {
+  border-radius: 28px;
+}
+@media (min-width: 1051px) {
+  .hero-stats-panel {
+    border-radius: 24px 24px 50% 50% / 24px 24px 60px 60px;
+  }
+}
+
+[data-flow-section] [data-flow-inner] {
+  padding-top: clamp(6rem, 6vw, 7rem);
+}
+
+/*
+  On desktop, reserve the right ~42% of each story panel for its photo
+  (see PanelImage) by keeping the text content in the left column.
+*/
+@media (min-width: 1051px) {
+  [data-flow-section] [data-flow-inner] {
+    padding-right: 44%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .dynamic-ready .reveal,
+  .dynamic-ready .reveal-left,
+  .dynamic-ready .reveal-right {
+    @apply translate-x-0 translate-y-0 scale-100 opacity-100 blur-0;
+  }
+}
