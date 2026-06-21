@@ -60,9 +60,9 @@
   never hidden behind the header. Higher specificity than the component's own
   pt utility, so it reliably wins.
 */
-/* Hero stats panel: clean rounded corners on mobile, elliptical curved bottom on desktop. */
+/* Hero stats panel: gently curved bottom on mobile, deeper elliptical curve on desktop. */
 .hero-stats-panel {
-  border-radius: 28px;
+  border-radius: 28px 28px 50% 50% / 28px 28px 34px 34px;
 }
 @media (min-width: 1051px) {
   .hero-stats-panel {
