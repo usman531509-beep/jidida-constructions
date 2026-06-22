@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import FlowArt, { FlowSection } from "@/components/ui/story-scroll";
 import { Button } from "@/components/ui/Button";
 
@@ -18,38 +19,31 @@ function Col({ label, children }: { label: string; children: React.ReactNode }) 
   );
 }
 
-/** Decorative photo that fills the empty right side of a panel and fades into it. */
-function PanelImage({ src, tint }: { src: string; tint: string }) {
-  return (
-    <div
-      aria-hidden="true"
-      className="pointer-events-none absolute inset-y-0 right-0 hidden w-[42%] lg:block"
-    >
-      <img src={src} alt="" className="h-full w-full object-cover" />
-      <div
-        className="absolute inset-0"
-        style={{ backgroundImage: `linear-gradient(90deg, ${tint} 0%, ${tint}00 40%)` }}
-      />
-    </div>
-  );
+/**
+ * Panel background: a construction photo with a strong colour wash baked into a
+ * CSS background (not an absolute element), so it rotates and clips cleanly with
+ * the panel and never leaves gaps behind the GSAP rotation.
+ */
+function panelStyle(tone: "orange" | "navy", imgId: string): CSSProperties {
+  const solid = tone === "orange" ? "#ff5e13" : "#00225a";
+  const wash = tone === "orange" ? "rgba(255,94,19,.84)" : "rgba(0,34,90,.84)";
+  return {
+    backgroundColor: solid,
+    backgroundImage: `linear-gradient(${wash}, ${wash}), url('https://images.unsplash.com/photo-${imgId}?auto=format&fit=crop&w=1400&q=80')`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    color: "#fff",
+  };
 }
 
-/**
- * Scroll-driven services story (GSAP FlowArt) used as the services section on the
- * home page. Each panel pins and the next rotates in over it.
- */
 export function ServicesStory() {
   return (
     <FlowArt aria-label="Jadida Construction services">
       {/* 01 — What we do */}
       <FlowSection
         aria-label="What we do"
-        style={{ backgroundColor: "#ff5e13", color: "#fff" }}
+        style={panelStyle("orange", "1504307651254-35680f356dfd")}
       >
-        <PanelImage
-          src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80"
-          tint="#ff5e13"
-        />
         <p className={kicker}>01 — What we do</p>
         <hr className="my-[1.25vw] border-none border-t border-black/25" />
         <div>
@@ -72,12 +66,8 @@ export function ServicesStory() {
       {/* 02 — Our services */}
       <FlowSection
         aria-label="Our services"
-        style={{ backgroundColor: "#00225a", color: "#fff" }}
+        style={panelStyle("navy", "1600585154340-be6161a56a0c")}
       >
-        <PanelImage
-          src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
-          tint="#00225a"
-        />
         <p className={kicker}>02 — Our services</p>
         <hr className="my-[1.25vw] border-none border-t border-white/25" />
         <div>
@@ -133,12 +123,8 @@ export function ServicesStory() {
       {/* 03 — Why Jadida */}
       <FlowSection
         aria-label="Why Jadida"
-        style={{ backgroundColor: "#ff5e13", color: "#fff" }}
+        style={panelStyle("orange", "1541888946425-d81bb19240f5")}
       >
-        <PanelImage
-          src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80"
-          tint="#ff5e13"
-        />
         <p className={kicker}>03 — Why Jadida</p>
         <hr className="my-[1.25vw] border-none border-t border-black/25" />
         <div>
@@ -181,15 +167,11 @@ export function ServicesStory() {
         </div>
       </FlowSection>
 
-      {/* 05 — Get started */}
+      {/* 04 — Get started */}
       <FlowSection
         aria-label="Get started"
-        style={{ backgroundColor: "#00225a", color: "#fff" }}
+        style={panelStyle("navy", "1486406146926-c627a92ad1ab")}
       >
-        <PanelImage
-          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80"
-          tint="#00225a"
-        />
         <p className={kicker}>04 — Get started</p>
         <hr className="my-[1.25vw] border-none border-t border-white/25" />
         <div>

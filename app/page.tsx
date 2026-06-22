@@ -60,7 +60,14 @@ export default function HomePage() {
                 aria-label="Play intro video"
                 className="grid h-12 w-12 place-items-center rounded-full border-2 border-navy/25 text-navy transition-all duration-300 hover:scale-105 hover:border-orange hover:text-orange tab:h-14 tab:w-14"
               >
-                <span className="ml-1 text-[15px]">▶</span>
+                <svg
+                  viewBox="0 0 24 24"
+                  className="ml-0.5 h-5 w-5"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M8 5v14l11-7z" />
+                </svg>
               </button>
             </div>
           </div>
