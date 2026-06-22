@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/cn";
 import { mainNav } from "@/lib/nav";
 import { Container } from "@/components/ui/Container";
@@ -125,15 +126,15 @@ export function Header() {
           Free Quote
         </Button>
 
-        {/* Hamburger */}
+        {/* Hamburger / close */}
         <button
           type="button"
-          aria-label="Open mobile menu"
+          aria-label={mobileOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileOpen}
           onClick={() => setMobileOpen((v) => !v)}
-          className="cursor-pointer border-0 bg-transparent text-[30px] leading-none text-navy tab:hidden"
+          className="grid h-10 w-10 cursor-pointer place-items-center rounded-lg border-0 bg-transparent text-navy transition-colors hover:text-orange tab:hidden"
         >
-          ☰
+          {mobileOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
         </button>
       </Container>
 
@@ -166,7 +167,26 @@ export function Header() {
               </Link>
             ),
           )}
-          <Button href="/quote" variant="navy" className="mt-5 w-full">
+          {/* Account / basket — moved here from the top bar on mobile */}
+          <div className="mt-4 flex items-center justify-between gap-4 rounded-xl bg-light px-4 py-3">
+            <Link
+              href="/login-register"
+              className="text-[15px] font-semibold text-navy transition-colors hover:text-orange"
+            >
+              Login / Register
+            </Link>
+            <Link
+              href="/cart"
+              className="inline-flex items-center gap-2 text-[15px] font-semibold text-navy transition-colors hover:text-orange"
+            >
+              Quote Basket
+              <span className="grid h-5 min-w-5 place-items-center rounded-full bg-orange px-1 text-[11px] text-white">
+                3
+              </span>
+            </Link>
+          </div>
+
+          <Button href="/quote" variant="navy" className="mt-4 w-full">
             Free Quote
           </Button>
         </div>
