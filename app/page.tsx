@@ -27,10 +27,10 @@ const features = [
   },
 ];
 
-const panelStats = [
-  { value: "50+", label: "Expert Team" },
-  { value: "500+", label: "Projects" },
-  { value: "30+", label: "Partner" },
+const heroPoints = [
+  { title: "Quality Workmanship", text: "Built with care and attention to detail." },
+  { title: "Honest Pricing", text: "Clear quotes with no hidden surprises." },
+  { title: "Reliable Service", text: "Professional support from start to finish." },
 ];
 
 export default function HomePage() {
@@ -83,68 +83,47 @@ export default function HomePage() {
               />
             </div>
 
-            <div className="hero-stats-panel relative animate-fade-in [animation-delay:.2s] overflow-hidden bg-navy px-6 pb-0 pt-9 text-white sm:px-8 sm:pt-11 lg:px-12 lg:pb-[120px] lg:pt-12">
+            <div className="hero-stats-panel relative animate-fade-in [animation-delay:.2s] overflow-hidden bg-navy px-6 pb-0 pt-9 text-white sm:px-8 sm:pt-11 lg:px-12 lg:pb-14 lg:pt-10">
               <div className="grid gap-8 lg:grid-cols-[1.25fr_1fr_0.85fr] lg:gap-10">
                 {/* Left */}
                 <div className="animate-slide-in-left [animation-delay:.3s] text-center lg:text-left">
-                  <div className="flex items-end justify-center gap-3 lg:justify-start">
-                    <span
-                      data-counter
-                      className="text-[46px] font-black leading-[.85] text-white sm:text-[56px]"
-                    >
-                      20+
-                    </span>
-                    <span className="text-left text-[16px] font-bold uppercase leading-tight sm:text-[18px]">
-                      Year
-                      <br />
-                      Experience
-                    </span>
-                  </div>
-                  <p className="mx-auto mt-5 max-w-[440px] text-[16px] italic leading-[1.5] text-white/75 sm:text-[18px] lg:mx-0">
-                    Our mission is not only to build, but to bring ideas to life with
-                    precision and purpose.
+                  <h2 className="text-[34px] font-bold uppercase leading-[0.95] tracking-tight sm:text-[42px]">
+                    Building Your Vision
+                  </h2>
+                  <p className="mt-2 text-[20px] font-semibold uppercase tracking-wide text-white/85 sm:text-[22px]">
+                    Quality You Can Trust
+                  </p>
+                  <p className="mx-auto mt-5 max-w-[460px] text-[17px] leading-[1.6] text-white/80 sm:text-[19px] lg:mx-0">
+                    Jadida Construction is focused on quality workmanship, honest pricing
+                    and reliable service. We deliver every project with care,
+                    professionalism and close attention to detail.
                   </p>
                   <Button
-                    href="/about"
+                    href="/quote"
                     className="mt-6 w-full justify-center sm:w-auto"
                   >
-                    Learn More
+                    Get a Quote
                   </Button>
-                  <div className="mt-7 flex items-center justify-center gap-4 lg:justify-start">
-                    <div className="flex -space-x-3">
-                      {team.map((t) => (
-                        <img
-                          key={t.name}
-                          src={t.image}
-                          alt={t.name}
-                          className="h-10 w-10 rounded-full border-2 border-navy object-cover sm:h-11 sm:w-11"
-                        />
-                      ))}
-                    </div>
-                    <div className="text-left">
-                      <div className="text-[22px] font-black leading-none sm:text-[24px]">
-                        1,000+
-                      </div>
-                      <div className="text-[11px] font-semibold uppercase tracking-wider text-white/60">
-                        Clients
-                      </div>
-                    </div>
+                  <div className="mt-7">
+                    <p className="text-[13px] font-bold uppercase tracking-wider text-orange">
+                      Ready to Deliver
+                    </p>
+                    <p className="mt-1 text-[16px] font-semibold text-white/85">
+                      Residential • Commercial • Renovation
+                    </p>
                   </div>
                 </div>
 
-                {/* Middle stats — desktop only (mobile shows the worker instead) */}
-                <div className="hidden animate-slide-in-right [animation-delay:.45s] lg:flex lg:flex-col lg:justify-center lg:divide-y lg:divide-white/15 lg:border-x lg:border-white/15 lg:px-10">
-                  {panelStats.map((s) => (
-                    <div key={s.label} className="py-4 first:pt-0 last:pb-0">
-                      <span
-                        data-counter
-                        className="block text-[38px] font-black leading-none text-white"
-                      >
-                        {s.value}
-                      </span>
-                      <div className="mt-1 text-[13px] font-semibold uppercase tracking-[2px] text-white/60">
-                        {s.label}
-                      </div>
+                {/* Middle — key selling points */}
+                <div className="flex animate-slide-in-right flex-col justify-center gap-6 border-t border-white/15 pt-6 [animation-delay:.45s] lg:gap-7 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
+                  {heroPoints.map((p) => (
+                    <div key={p.title}>
+                      <h3 className="text-[19px] font-bold uppercase tracking-wide">
+                        {p.title}
+                      </h3>
+                      <p className="mt-1.5 text-[16px] leading-relaxed text-white/70">
+                        {p.text}
+                      </p>
                     </div>
                   ))}
                 </div>
