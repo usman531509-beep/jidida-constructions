@@ -2,30 +2,13 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Section, SectionTitleGrid } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
-import { AboutBlock, TestimonialIntro } from "@/components/ui/blocks";
+import { TestimonialIntro } from "@/components/ui/blocks";
 import { TeamCard, BlogCard, Testimonial } from "@/components/ui/cards";
 import { Skyline } from "@/components/hero/Skyline";
 import { ServicesStory } from "@/components/home/ServicesStory";
 import { ProjectsBento } from "@/components/home/ProjectsBento";
+import { AboutShowcase } from "@/components/about/AboutShowcase";
 import { team, posts, postText } from "@/lib/data";
-
-const features = [
-  {
-    number: "01",
-    title: "Trusted Local Builders",
-    text: "Reliable building teams for homeowners, landlords, property investors and small businesses.",
-  },
-  {
-    number: "02",
-    title: "Quality Workmanship",
-    text: "Professional finishes, practical project management and clear communication from start to finish.",
-  },
-  {
-    number: "03",
-    title: "Fair Transparent Pricing",
-    text: "Detailed written estimates, agreed scope of works and sensible timelines before work begins.",
-  },
-];
 
 const heroPoints = [
   { title: "Quality Workmanship", text: "Built with care and attention to detail." },
@@ -143,34 +126,10 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* Features — hairline-divided, minimal */}
-      <Section compact>
-        <Container>
-          <div className="reveal grid grid-cols-1 gap-px overflow-hidden rounded-tl-[30px] rounded-br-[30px] border border-line bg-line tab:grid-cols-3">
-            {features.map((f) => (
-              <div key={f.number} className="group bg-white p-9 transition-colors">
-                <span className="text-[15px] font-bold tracking-widest text-orange">
-                  {f.number}
-                </span>
-                <h3 className="mt-4 text-[26px] font-semibold leading-tight text-navy transition-colors group-hover:text-orange">
-                  {f.title}
-                </h3>
-                <p className="mt-3 text-[18px] leading-[1.5] text-muted">{f.text}</p>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      {/* About */}
+      {/* About showcase */}
       <Section>
         <Container>
-          <SectionTitleGrid
-            kicker="About Us"
-            title="We Construct your needs"
-            copy="Jadida Construction Ltd provides practical building, renovation and property improvement services for homes, flats, shops, offices and landlords."
-          />
-          <AboutBlock />
+          <AboutShowcase />
         </Container>
       </Section>
 

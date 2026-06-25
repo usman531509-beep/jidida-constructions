@@ -16,7 +16,7 @@ export const projects = [
     description: "Bespoke kitchen fitting with new units, worktops and finishes.",
   },
   {
-    image: u("photo-1497366811353-6870744d04b2"),
+    image: "/projects/retail-fit-out.jpeg",
     category: "Commercial",
     title: "Retail Shop Fit-Out",
     description: "Full retail fit-out designed around daily business use.",
@@ -29,7 +29,7 @@ export const projects = [
       "A modern, practical workspace transformation for a commercial client.",
   },
   {
-    image: u("photo-1600607688969-a5bfcd646154"),
+    image: "/projects/loft.jpeg",
     category: "Residential",
     title: "Loft Conversion",
     description: "Unused roof space converted into a bright, usable living area.",
@@ -59,7 +59,7 @@ export const services = [
     text: "Modern kitchens, bathrooms, tiling, plumbing coordination and final decoration.",
   },
   {
-    image: u("photo-1497366811353-6870744d04b2"),
+    image: "/projects/retail-fit-out.jpeg",
     title: "Shop Fitting",
     text: "Retail, office and small commercial fit-outs designed around daily business use.",
   },

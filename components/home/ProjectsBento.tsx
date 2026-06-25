@@ -58,7 +58,7 @@ const items: Item[] = [
     desc: "Stylish and practical commercial interiors.",
     href: "/project",
     icon: Store,
-    image: img("1497366811353-6870744d04b2"),
+    image: "/projects/retail-fit-out.jpeg",
     tone: "light",
   },
   {
@@ -66,7 +66,7 @@ const items: Item[] = [
     desc: "Efficient planning and extra living space.",
     href: "/project",
     icon: Warehouse,
-    image: img("1600607688969-a5bfcd646154"),
+    image: "/projects/loft.jpeg",
     tone: "light",
   },
   {
